@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game of Life - Symulacja</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <a href="../index.html" class="btn-home">
+        <i class="fa-solid fa-house"></i> <span>MENU</span>
+    </a>
+    <div class="bg-animation"></div>
+
+    <div class="main-layout">
+        
+        <div class="panel glass-panel control-panel fade-in">
+            <header class="header-area">
+                <h1>GAME OF <span class="accent">LIFE</span></h1>
+                <p class="subtitle">Automat Komórkowy Conwaya</p>
+            </header>
+
+            <div class="controls-group">
+                <button id="btn-start" class="btn-action btn-green">
+                    <i class="fa-solid fa-play"></i> START
+                </button>
+                <button id="btn-pause" class="btn-action btn-yellow hidden">
+                    <i class="fa-solid fa-pause"></i> PAUZA
+                </button>
+                <button id="btn-clear" class="btn-action">
+                    <i class="fa-solid fa-trash"></i> WYCZYŚĆ
+                </button>
+                <button id="btn-random" class="btn-action">
+                    <i class="fa-solid fa-dice"></i> LOSUJ
+                </button>
+            </div>
+
+            <div class="settings-group">
+                <label>Prędkość:</label>
+                <input type="range" id="speed-range" min="10" max="500" value="100">
+            </div>
+
+            <div class="presets-group">
+                <p class="section-title">Wstaw Wzór:</p>
+                <div class="presets-grid">
+                    <button class="btn-preset" onclick="simulation.loadPreset('glider')">Szybowiec</button>
+                    <button class="btn-preset" onclick="simulation.loadPreset('pulsar')">Pulsar</button>
+                    <button class="btn-preset" onclick="simulation.loadPreset('gun')">Działo Gospera</button>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h3><i class="fa-solid fa-book"></i> Zasady Matematyczne</h3>
+                <ul>
+                    <li><strong>Przeżycie:</strong> Komórka żyje dalej, jeśli ma 2 lub 3 sąsiadów.</li>
+                    <li><strong>Śmierć:</strong> Umiera z samotności (<2 sąsiadów) lub przeludnienia (>3).</li>
+                    <li><strong>Narodziny:</strong> Martwa komórka ożywa, jeśli ma dokładnie 3 sąsiadów.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="panel glass-panel canvas-container fade-in">
+            <div class="stats-bar">
+                <span>Populacja: <strong id="stat-pop" class="highlight">0</strong></span>
+                <span>Generacja: <strong id="stat-gen" class="highlight">0</strong></span>
+            </div>
+            
+            <canvas id="gridCanvas"></canvas>
+            
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
