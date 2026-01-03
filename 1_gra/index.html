@@ -3,28 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gra Konkursowa</title>
+    <title>Gra 1 - Geometria</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <a href="../index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Powrót do menu</a>
+    <a href="../index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Menu</a>
 
     <div class="game-container">
         <header>
-            <h1>TYTUŁ <span class="accent">GRY</span></h1>
-            <p>Tutaj pojawi się instrukcja lub wynik.</p>
+            <h1>WOJNA <span class="accent">WORONOJA</span></h1>
+            <p>Strategia podziału przestrzeni</p>
         </header>
 
-        <div class="game-board">
-            <div class="placeholder-content">
-                <i class="fa-solid fa-gamepad" style="font-size: 3rem; margin-bottom: 20px;"></i>
-                <p>Tu zaimplementuj logikę gry w JS.</p>
-                <button id="startBtn" class="action-btn">Rozpocznij</button>
+        <div class="score-board fade-in">
+            <div class="score-box player">
+                <h3>TY (Niebieski)</h3>
+                <span id="scorePlayer">0</span>
+                <p id="areaPlayer">0%</p>
+            </div>
+            
+            <div class="turn-indicator">
+                <p>Ruchy w rundzie:</p>
+                <div class="moves-dots" id="movesContainer"></div>
+            </div>
+
+            <div class="score-box cpu">
+                <h3>CPU (Różowy)</h3>
+                <span id="scoreCPU">0</span>
+                <p id="areaCPU">0%</p>
             </div>
         </div>
+
+        <div class="game-board-wrapper fade-in-stagger">
+            
+            <div id="overlay" class="start-overlay">
+                <h2 id="msgTitle">Nowa Gra</h2>
+                <p id="msgText">Wybierz poziom trudności:</p>
+                
+                <div class="difficulty-container">
+                    <button class="diff-btn" data-level="EASY">ŁATWY</button>
+                    <button class="diff-btn active" data-level="MEDIUM">ŚREDNI</button>
+                    <button class="diff-btn" data-level="HARD">TRUDNY</button>
+                </div>
+
+                <button id="actionBtn" class="action-btn">START</button>
+            </div>
+
+            <canvas id="gameCanvas" width="800" height="500"></canvas>
+        </div>
+
+        <div class="rules-box fade-in-stagger">
+            <h3><i class="fa-solid fa-book"></i> Jak grać?</h3>
+            <ol>
+                <li><strong>Cel:</strong> Zdobądź ponad 50% powierzchni mapy.</li>
+                <li><strong>Mechanika:</strong> Każdy punkt na mapie (piksel) należy do tej bazy, która jest najbliżej niego (Diagram Woronoja).</li>
+                <li><strong>Rozgrywka:</strong> Masz 5 ruchów w rundzie. Klikaj na planszę, aby stawiać bazy.</li>
+                <li><strong>Strategia:</strong> Stawiaj bazy tam, gdzie jest dużo wolnego miejsca ("wielkie plamy" koloru przeciwnika), aby je przejąć. Blokuj przeciwnika!</li>
+            </ol>
+        </div>
+
     </div>
 
     <script src="script.js"></script>

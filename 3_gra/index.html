@@ -3,28 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gra Konkursowa</title>
+    <title>Gra 3 - Kryptografia</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <a href="../index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Powrót do menu</a>
+    <a href="../index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Menu</a>
+
+    <div class="scanlines"></div>
 
     <div class="game-container">
         <header>
-            <h1>TYTUŁ <span class="accent">GRY</span></h1>
-            <p>Tutaj pojawi się instrukcja lub wynik.</p>
+            <h1>CYBER <span class="accent">BREAKER</span></h1>
+            <p>System zablokowany. Złam szyfr, aby uzyskać dostęp.</p>
         </header>
 
-        <div class="game-board">
-            <div class="placeholder-content">
-                <i class="fa-solid fa-gamepad" style="font-size: 3rem; margin-bottom: 20px;"></i>
-                <p>Tu zaimplementuj logikę gry w JS.</p>
-                <button id="startBtn" class="action-btn">Rozpocznij</button>
+        <div class="status-bar fade-in">
+            <div class="stat-box">
+                <p>DOSTĘP</p>
+                <span id="scoreDisplay">0/5</span>
+            </div>
+            <div class="timer-container">
+                <div id="timerBar" class="timer-fill"></div>
+            </div>
+            <div class="stat-box">
+                <p>POZIOM</p>
+                <span id="levelDisplay">NORM</span>
             </div>
         </div>
+
+        <div class="terminal-window fade-in-stagger">
+            
+            <div id="overlay" class="start-overlay">
+                <div class="lock-icon"><i class="fa-solid fa-lock"></i></div>
+                <h2 id="msgTitle">SYSTEM SECURE</h2>
+                <p id="msgText">Wybierz protokół łamania:</p>
+                
+                <div class="difficulty-container">
+                    <button class="diff-btn" data-level="EASY">ŁATWY</button>
+                    <button class="diff-btn active" data-level="MEDIUM">ŚREDNI</button>
+                    <button class="diff-btn" data-level="HARD">TRUDNY</button>
+                </div>
+
+                <button id="actionBtn" class="action-btn">INICJUJ ATAK</button>
+            </div>
+
+            <div class="cipher-screen">
+                <p class="label">ENCRYPTED DATA STREAM:</p>
+                <div class="code-display" id="cipherDisplay">
+                    X7_ERROR
+                </div>
+                <div class="status-message" id="statusMessage">OCZEKIWANIE NA KLUCZ...</div>
+            </div>
+
+            <div class="decoder-controls">
+                <label>PRZESUNIĘCIE KLUCZA (SHIFT): <span id="shiftValue" class="accent">0</span></label>
+                <input type="range" id="decoderSlider" min="0" max="25" value="0" disabled>
+                
+                <button id="submitBtn" class="submit-btn" disabled>
+                    <i class="fa-solid fa-unlock"></i> POTWIERDŹ
+                </button>
+            </div>
+
+        </div>
+
+        <div class="rules-box fade-in-stagger">
+            <h3><i class="fa-solid fa-terminal"></i> Instrukcja Hakera</h3>
+            <ol>
+                <li><strong>Cel:</strong> Odszyfruj 5 haseł, zanim system Cię wykryje (czas minie).</li>
+                <li><strong>Działanie:</strong> Przesuwaj suwak, aby zmieniać litery w czasie rzeczywistym.</li>
+                <li><strong>Wskazówka:</strong> Szukaj sensownych słów (np. HASŁO, DOSTĘP, AGH). Gdy zobaczysz czytelny tekst, kliknij <strong>POTWIERDŹ</strong>.</li>
+                <li><strong>Poziomy:</strong>
+                    <ul style="margin-top:5px; color:#94a3b8; font-size:0.85rem;">
+                        <li><em>Łatwy:</em> Krótkie słowa, wolny licznik.</li>
+                        <li><em>Średni:</em> Dłuższe hasła techniczne.</li>
+                        <li><em>Trudny:</em> Pełne zdania lub losowe znaki, bardzo mało czasu.</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
     </div>
 
     <script src="script.js"></script>

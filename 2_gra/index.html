@@ -3,28 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gra Konkursowa</title>
+    <title>Gra 2 - Ciągi</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <a href="../index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Powrót do menu</a>
+    <a href="../index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Menu</a>
 
     <div class="game-container">
         <header>
-            <h1>TYTUŁ <span class="accent">GRY</span></h1>
-            <p>Tutaj pojawi się instrukcja lub wynik.</p>
+            <h1>LOGIC <span class="accent">RUSH</span></h1>
+            <p>Rozszyfruj regułę ciągu, zanim skończy się czas.</p>
         </header>
 
-        <div class="game-board">
-            <div class="placeholder-content">
-                <i class="fa-solid fa-gamepad" style="font-size: 3rem; margin-bottom: 20px;"></i>
-                <p>Tu zaimplementuj logikę gry w JS.</p>
-                <button id="startBtn" class="action-btn">Rozpocznij</button>
+        <div class="status-bar fade-in">
+            <div class="stat-box">
+                <p>WYNIK</p>
+                <span id="scoreDisplay">0</span>
+            </div>
+            <div class="timer-container">
+                <div id="timerBar" class="timer-fill"></div>
+            </div>
+            <div class="stat-box">
+                <p>POZIOM</p>
+                <span id="levelDisplay">-</span>
             </div>
         </div>
+
+        <div class="game-board-wrapper fade-in-stagger">
+            
+            <div id="overlay" class="start-overlay">
+                <h2 id="msgTitle">Gotowy?</h2>
+                <p id="msgText">Wybierz poziom trudności:</p>
+                
+                <div class="difficulty-container">
+                    <button class="diff-btn" data-level="EASY">ŁATWY</button>
+                    <button class="diff-btn active" data-level="MEDIUM">ŚREDNI</button>
+                    <button class="diff-btn" data-level="HARD">TRUDNY</button>
+                </div>
+
+                <button id="actionBtn" class="action-btn">START</button>
+            </div>
+
+            <div class="sequence-display">
+                <span id="seqText">? ? ?</span>
+            </div>
+
+            <div class="options-grid" id="optionsGrid">
+                <button class="option-btn">A</button>
+                <button class="option-btn">B</button>
+                <button class="option-btn">C</button>
+                <button class="option-btn">D</button>
+            </div>
+        </div>
+
+        <div class="rules-box fade-in-stagger">
+            <h3><i class="fa-solid fa-lightbulb"></i> Jak grać?</h3>
+            <ol>
+                <li><strong>Cel:</strong> Zgadnij kolejną liczbę w ciągu.</li>
+                <li><strong>Czas:</strong> Masz tylko kilka sekund na odpowiedź! Im szybciej odpowiesz, tym więcej punktów.</li>
+                <li><strong>Błędy:</strong> Zła odpowiedź odejmuje życie (masz 3 szanse).</li>
+                <li><strong>Poziomy:</strong>
+                    <ul style="margin-top:5px; color:#cbd5e1; font-size:0.85rem;">
+                        <li><em>Łatwy:</em> Dodawanie i odejmowanie.</li>
+                        <li><em>Średni:</em> Mnożenie i proste potęgi.</li>
+                        <li><em>Trudny:</em> Ciągi Fibonacciego, kwadraty liczb i mieszane działania.</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
     </div>
 
     <script src="script.js"></script>
