@@ -3,7 +3,7 @@
     --text-white: #ffffff;
     --font: 'Montserrat', sans-serif;
     
-    /* Kolory Gier */
+    /* Kolory Gier i Tematów */
     --c-flagdle: #3b82f6;   /* Niebieski */
     --c-popdle: #8b5cf6;    /* Fiolet */
     --c-logodle: #ec4899;   /* Różowy */
@@ -37,8 +37,8 @@ body {
     display: flex; flex-direction: column; align-items: center;
 }
 
-/* Header */
-.hub-header { text-align: center; margin-bottom: 60px; }
+/* Header Główny */
+.hub-header { text-align: center; margin-bottom: 50px; }
 .main-title { font-size: 4rem; font-weight: 900; letter-spacing: -2px; margin-bottom: 10px; }
 .accent-text { 
     background: linear-gradient(to right, #3b82f6, #ec4899); 
@@ -46,12 +46,48 @@ body {
 }
 .subtitle { color: #94a3b8; font-size: 1.2rem; letter-spacing: 1px; text-transform: uppercase; }
 
-/* Grid Gier */
+/* --- NOWE: Nagłówki Sekcji (Strefa Wiedzy / Gier) --- */
+.section-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    margin-top: 10px;
+    opacity: 0.9;
+}
+
+.section-header h3 {
+    font-size: 1.1rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    white-space: nowrap;
+    margin: 0;
+    font-weight: 700;
+}
+
+.section-header .line {
+    height: 1px;
+    background: linear-gradient(to right, rgba(148, 163, 184, 0.3), transparent);
+    width: 100%;
+}
+
+.section-header i {
+    color: var(--c-flagdle);
+}
+
+/* --- Grid Gier --- */
 .games-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 25px;
     width: 100%;
+}
+
+/* Odstęp dolny dla górnej sekcji (aby oddzielić tematy od gier) */
+.mb-large {
+    margin-bottom: 60px;
 }
 
 /* Karta Gry */
@@ -77,7 +113,7 @@ body {
     box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
-/* Specyficzne kolory poświaty dla każdej gry */
+/* Specyficzne kolory poświaty dla kart (używane też w tematach) */
 .card-flagdle:hover { box-shadow: 0 20px 50px rgba(59, 130, 246, 0.3); border-color: var(--c-flagdle); }
 .card-popdle:hover { box-shadow: 0 20px 50px rgba(139, 92, 246, 0.3); border-color: var(--c-popdle); }
 .card-logodle:hover { box-shadow: 0 20px 50px rgba(236, 72, 153, 0.3); border-color: var(--c-logodle); }
@@ -112,6 +148,7 @@ body {
 .badge {
     font-size: 0.6rem; background: var(--c-flagdle); padding: 2px 6px; border-radius: 4px; 
     vertical-align: middle; margin-left: 5px; color: white;
+    text-transform: uppercase; font-weight: 700;
 }
 
 .card-arrow {
@@ -136,4 +173,5 @@ body {
     .main-title { font-size: 2.5rem; }
     .games-grid { grid-template-columns: 1fr; }
     .game-card { padding: 20px; }
+    .section-header h3 { font-size: 0.9rem; }
 }

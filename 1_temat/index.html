@@ -3,34 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prezentacja Tematu</title>
+    <title>Lekcja 1 - Geometria</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <a href="../index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Powrót do menu</a>
+    <div class="bg-animation"></div>
 
-    <div class="content-container">
-        <header class="topic-header">
-            <div class="icon-box"><i class="fa-solid fa-lightbulb"></i></div>
-            <h1>TEMAT <span class="accent">PREZENTACJI</span></h1>
+    <nav class="top-nav fade-in">
+        <a href="../index.html" class="nav-btn"><i class="fa-solid fa-arrow-left"></i> Wróć do Menu</a>
+    </nav>
+
+    <div class="lesson-container">
+        
+        <header class="lesson-header fade-in-stagger">
+            <div class="icon-wrapper">
+                <i class="fa-solid fa-ruler-combined"></i>
+            </div>
+            <h1 class="lesson-title">SYMETRALNE <span class="accent">I ZBIORY PUNKTÓW</span></h1>
+            <p class="lesson-subtitle">Od geometrii analitycznej do podziału terytorium</p>
         </header>
 
-        <article class="glass-panel">
-            <h2>Wprowadzenie</h2>
-            <p>Tutaj wpisz treść merytoryczną dotyczącą wybranego tematu. Stylistyka jest zachowana z głównego huba (ciemny motyw, glassmorphism).</p>
+        <article class="content-box fade-in-stagger">
             
-            <hr class="divider">
-            
-            <h2>Szczegóły</h2>
+            <h2>1. Czym jest symetralna?</h2>
+            <p>
+                W szkole uczymy się, że symetralna to prosta prostopadła do odcinka, przechodząca przez jego środek. 
+                Ale w informatyce i nawigacji ważniejsza jest inna definicja:
+            </p>
+            <div class="info-block">
+                <i class="fa-solid fa-quote-left"></i>
+                <p><strong>Definicja:</strong> Symetralna odcinka $AB$ to zbiór wszystkich punktów na płaszczyźnie, które są <strong>równoodległe</strong> od punktów $A$ i $B$.</p>
+            </div>
+
+            <h2>2. Symulacja: Zobacz to w akcji</h2>
+            <p>
+                Poniżej widzisz dwa punkty: <span style="color:#3b82f6; font-weight:bold">A (Niebieski)</span> i <span style="color:#ec4899; font-weight:bold">B (Różowy)</span>. 
+                Biała linia to symetralna. Kliknij w dowolne miejsce na szarym polu, aby przesunąć punkt A i zobacz, jak zmienia się równanie prostej.
+            </p>
+
+            <div class="interactive-canvas-wrapper">
+                <canvas id="geometryCanvas" width="700" height="400"></canvas>
+                <div class="math-output">
+                    <p>Współrzędne A: <span id="coordA">-</span></p>
+                    <p>Współrzędne B: <span id="coordB">-</span></p>
+                    <p class="equation">Równanie symetralnej: <span id="lineEq" class="accent">y = ...</span></p>
+                </div>
+            </div>
+
+            <h2>3. Co to oznacza w praktyce?</h2>
+            <p>
+                Każdy punkt leżący "po lewej" stronie symetralnej ma bliżej do bazy A. Każdy punkt "po prawej" ma bliżej do bazy B.
+                Symetralna jest więc idealną <strong>granicą terytorium</strong>.
+            </p>
             <ul>
-                <li>Punkt pierwszy prezentacji</li>
-                <li>Punkt drugi prezentacji</li>
-                <li>Ciekawostka lub dane</li>
+                <li>Jeśli dodamy trzeci punkt C, powstaną trzy symetralne.</li>
+                <li>Przetną się one w jednym punkcie – jest to środek okręgu opisanego na trójkącie ABC.</li>
             </ul>
+            <p>
+                Ta własność jest wykorzystywana w grach (AI wrogów), nawigacji GPS i... w grze, w którą zaraz zagrasz.
+            </p>
+
         </article>
+
+        <div class="next-step fade-in-stagger">
+            <p>Rozumiesz już zasadę?</p>
+            <a href="../1_gra/index.html" class="cta-button">
+                Rozpocznij Grę: Podział Terytorium <i class="fa-solid fa-play"></i>
+            </a>
+        </div>
+
     </div>
 
     <script src="script.js"></script>
