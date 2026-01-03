@@ -1,7 +1,7 @@
 :root {
     --bg-dark: #0a0e17;
     --text-white: #e2e8f0;
-    --accent: #ef4444; /* Czerwony dla Tematu 3 */
+    --accent: #ef4444;
     --font: 'Montserrat', sans-serif;
     --font-mono: 'Fira Code', monospace;
 }
@@ -17,7 +17,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Tło - czerwonawe */
 .bg-animation {
     position: fixed; width: 200%; height: 200%; top: -50%; left: -50%;
     background: radial-gradient(circle at 50% 50%, rgba(239, 68, 68, 0.05), transparent 60%);
@@ -25,7 +24,6 @@ body {
 }
 @keyframes rotateBg { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-/* Nawigacja */
 .top-nav { padding: 20px; position: absolute; top: 0; left: 0; width: 100%; }
 .nav-btn {
     text-decoration: none; color: #94a3b8; font-weight: 700; font-size: 0.9rem;
@@ -33,10 +31,8 @@ body {
 }
 .nav-btn:hover { color: white; transform: translateX(-5px); }
 
-/* Kontener */
 .lesson-container { max-width: 800px; margin: 0 auto; padding: 60px 20px 100px; }
 
-/* Header */
 .lesson-header { text-align: center; margin-bottom: 50px; }
 .icon-wrapper {
     width: 70px; height: 70px; background: rgba(239, 68, 68, 0.1);
@@ -49,7 +45,6 @@ body {
 .lesson-title .accent { color: var(--accent); }
 .lesson-subtitle { color: #94a3b8; font-size: 1.1rem; }
 
-/* Content */
 .content-box {
     background: rgba(30, 41, 59, 0.4);
     border: 1px solid rgba(255,255,255,0.05);
@@ -63,14 +58,12 @@ body {
 .content-box h2:first-of-type { margin-top: 0; }
 .content-box p { color: #cbd5e1; font-size: 1.05rem; margin-bottom: 15px; }
 
-/* Wzory matematyczne */
 .math-formula {
     text-align: center; font-size: 1.5rem; font-weight: bold; color: white;
     background: rgba(0,0,0,0.3); padding: 15px; border-radius: 10px; margin: 20px 0;
     border: 1px dashed var(--accent); font-family: var(--font-mono);
 }
 
-/* Blok Info */
 .info-block {
     background: rgba(239, 68, 68, 0.1); border-left: 4px solid var(--accent);
     padding: 20px; border-radius: 0 12px 12px 0; margin: 30px 0; display: flex; gap: 15px;
@@ -78,7 +71,6 @@ body {
 .info-block i { color: var(--accent); font-size: 1.4rem; margin-top: 3px; }
 .info-block p { margin: 0; }
 
-/* INTERAKTYWNE NARZĘDZIE SZYFRUJĄCE */
 .cipher-tool-wrapper {
     background: #0f172a; border-radius: 16px; padding: 30px;
     border: 1px solid #334155; margin-top: 30px;
@@ -96,7 +88,6 @@ input[type=range] { width: 100%; max-width: 300px; accent-color: var(--accent); 
     font-size: 0.75rem; color: #64748b; font-weight: 700; letter-spacing: 1px; margin-bottom: 5px; display: block;
 }
 
-/* Wygląd terminala dla inputów */
 .input-group input {
     width: 100%; background: #1e293b; border: 2px solid #334155;
     color: white; padding: 15px; font-family: var(--font-mono); font-size: 1.2rem;
@@ -107,7 +98,6 @@ input[type=range] { width: 100%; max-width: 300px; accent-color: var(--accent); 
     box-shadow: 0 0 15px rgba(239, 68, 68, 0.2);
 }
 
-/* Wyjście szyfru - inny kolor */
 #cipherOutput {
     background: #111; color: var(--accent); border-color: #333;
 }
@@ -117,7 +107,6 @@ input[type=range] { width: 100%; max-width: 300px; accent-color: var(--accent); 
 
 .divider { border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 40px 0; }
 
-/* Przycisk CTA */
 .next-step { text-align: center; margin-top: 20px; }
 .cta-button {
     display: inline-block; background: var(--accent);
@@ -127,7 +116,6 @@ input[type=range] { width: 100%; max-width: 300px; accent-color: var(--accent); 
 }
 .cta-button:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 10px 30px rgba(239, 68, 68, 0.4); }
 
-/* Animacje */
 .fade-in { opacity: 0; animation: fadeDown 0.8s ease forwards; }
 .fade-in-stagger { opacity: 0; animation: fadeUp 0.8s ease forwards; }
 @keyframes fadeDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }

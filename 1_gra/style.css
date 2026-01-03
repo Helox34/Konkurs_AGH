@@ -1,8 +1,8 @@
 :root {
     --bg-dark: #0a0e17;
     --text-white: #ffffff;
-    --accent: #8b5cf6; /* FIOLET (Był niebieski) */
-    --enemy: #ec4899;  /* Różowy */
+    --accent: #8b5cf6;
+    --enemy: #ec4899;
     --font: 'Montserrat', sans-serif;
     
     --diff-easy: #10b981;
@@ -32,7 +32,6 @@ body {
 h1 { font-size: 2.5rem; margin-bottom: 5px; text-transform: uppercase; }
 .accent { color: var(--accent); }
 
-/* WYNIKI */
 .score-board {
     display: flex; justify-content: center; align-items: center; gap: 30px;
     margin-bottom: 20px;
@@ -51,7 +50,6 @@ h1 { font-size: 2.5rem; margin-bottom: 5px; text-transform: uppercase; }
 .turn-indicator { text-align: center; color: #94a3b8; font-size: 0.8rem; }
 .turn-indicator p { margin-bottom: 5px; }
 
-/* PLANSZA */
 .game-board-wrapper {
     position: relative; border-radius: 20px; overflow: hidden;
     box-shadow: 0 0 50px rgba(0,0,0,0.5);
@@ -60,7 +58,6 @@ h1 { font-size: 2.5rem; margin-bottom: 5px; text-transform: uppercase; }
 }
 canvas { display: block; width: 100%; height: auto; cursor: crosshair; }
 
-/* OVERLAY */
 .start-overlay {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     background: rgba(10, 14, 23, 0.9);
@@ -87,11 +84,10 @@ canvas { display: block; width: 100%; height: auto; cursor: crosshair; }
     background: var(--accent); border: none; padding: 15px 50px;
     color: white; font-weight: 800; border-radius: 50px; cursor: pointer;
     font-size: 1.2rem; transition: 0.3s; text-transform: uppercase;
-    box-shadow: 0 0 20px rgba(139, 92, 246, 0.5); /* Cień pod kolor */
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
 }
 .action-btn:hover { transform: scale(1.05); box-shadow: 0 0 40px rgba(139, 92, 246, 0.8); }
 
-/* INSTRUKCJA */
 .rules-box {
     margin-top: 30px; text-align: left; background: rgba(30, 41, 59, 0.4);
     padding: 25px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05);
@@ -101,7 +97,6 @@ canvas { display: block; width: 100%; height: auto; cursor: crosshair; }
 .rules-box li { margin-bottom: 8px; }
 .rules-box strong { color: white; }
 
-/* Animacje */
 .fade-in { opacity: 0; animation: fadeDown 0.8s ease forwards; }
 .fade-in-stagger { opacity: 0; animation: fadeUp 0.8s ease forwards; animation-delay: 0.2s; }
 @keyframes fadeDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }

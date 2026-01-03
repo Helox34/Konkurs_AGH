@@ -2,11 +2,9 @@
     --bg-dark: #0a0e17;
     --text-white: #ffffff;
     --font: 'Montserrat', sans-serif;
-    
-    /* PALETA KOLORÓW - ZESTAWY TEMATYCZNE */
-    --c-set1: #8b5cf6;   /* FIOLET (Geometria: Temat 1 + Gra 1) */
-    --c-set2: #10b981;   /* ZIELEŃ (Ciągi: Temat 2 + Gra 2) */
-    --c-set3: #ef4444;   /* CZERWIEŃ (Kryptografia: Temat 3 + Gra 3) */
+    --c-set1: #8b5cf6;
+    --c-set2: #10b981;
+    --c-set3: #ef4444;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -20,7 +18,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Animowane tło */
 .bg-animation {
     position: fixed; width: 200%; height: 200%; top: -50%; left: -50%;
     background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.03), transparent 70%);
@@ -34,7 +31,6 @@ body {
     display: flex; flex-direction: column; align-items: center;
 }
 
-/* Header */
 .hub-header { text-align: center; margin-bottom: 50px; }
 .main-title { font-size: 4rem; font-weight: 900; letter-spacing: -2px; margin-bottom: 10px; }
 .accent-text { 
@@ -43,7 +39,6 @@ body {
 }
 .subtitle { color: #94a3b8; font-size: 1.2rem; letter-spacing: 1px; text-transform: uppercase; }
 
-/* Nagłówki Sekcji */
 .section-header {
     width: 100%; display: flex; align-items: center; gap: 15px;
     margin-bottom: 25px; margin-top: 10px; opacity: 0.9;
@@ -57,14 +52,12 @@ body {
 }
 .section-header i { color: var(--c-set1); }
 
-/* Grid */
 .games-grid {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 25px; width: 100%;
 }
 .mb-large { margin-bottom: 60px; }
 
-/* Karta Gry */
 .game-card {
     background: rgba(30, 41, 59, 0.4);
     border: 1px solid rgba(255,255,255,0.05);
@@ -81,10 +74,6 @@ body {
     background: rgba(30, 41, 59, 0.7);
 }
 
-/* --- KOLORYSTYKA KART (ZESTAWY) --- */
-
-/* ZESTAW 1: FIOLET (Temat 1 i Gra 1) */
-/* Używamy klas z Twojego kodu (card-popdle dla tematu, card-flagdle dla gry 1) */
 .card-popdle:hover, .card-flagdle:hover { 
     box-shadow: 0 20px 50px rgba(139, 92, 246, 0.3); 
     border-color: var(--c-set1); 
@@ -92,9 +81,6 @@ body {
 .card-popdle .card-icon, .card-flagdle .card-icon { color: var(--c-set1); }
 .card-popdle .badge, .card-flagdle .badge { background: var(--c-set1); }
 
-
-/* ZESTAW 2: ZIELEŃ (Temat 2 i Gra 2) */
-/* (card-pricedle dla tematu, card-logodle dla gry 2) */
 .card-pricedle:hover, .card-logodle:hover { 
     box-shadow: 0 20px 50px rgba(16, 185, 129, 0.3); 
     border-color: var(--c-set2); 
@@ -102,9 +88,6 @@ body {
 .card-pricedle .card-icon, .card-logodle .card-icon { color: var(--c-set2); }
 .card-pricedle .badge, .card-logodle .badge { background: var(--c-set2); }
 
-
-/* ZESTAW 3: CZERWIEŃ (Temat 3 i Gra 3) */
-/* (card-reaction dla tematu, card-chronodle dla gry 3) */
 .card-reaction:hover, .card-chronodle:hover { 
     box-shadow: 0 20px 50px rgba(239, 68, 68, 0.3); 
     border-color: var(--c-set3); 
@@ -112,14 +95,16 @@ body {
 .card-reaction .card-icon, .card-chronodle .card-icon { color: var(--c-set3); }
 .card-reaction .badge, .card-chronodle .badge { background: var(--c-set3); }
 
-
-/* Wnętrze karty */
 .card-icon {
-    width: 60px; height: 60px;
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    min-height: 60px;
     background: rgba(255,255,255,0.05);
     border-radius: 16px;
     display: flex; justify-content: center; align-items: center;
     font-size: 1.8rem; transition: transform 0.4s;
+    flex-shrink: 0;
 }
 .game-card:hover .card-icon { transform: scale(1.1) rotate(5deg); background: rgba(255,255,255,0.1); }
 
@@ -136,10 +121,8 @@ body {
 .card-arrow { font-size: 1.2rem; color: #475569; transition: 0.3s; }
 .game-card:hover .card-arrow { color: white; transform: translateX(5px); }
 
-/* Footer */
 .hub-footer { margin-top: 60px; color: #475569; font-size: 0.9rem; }
 
-/* Animacje */
 .fade-in { opacity: 0; animation: fadeUp 0.8s ease forwards; }
 .fade-in-stagger { opacity: 0; animation: fadeUp 0.8s ease forwards; }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }

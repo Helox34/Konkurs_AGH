@@ -1,7 +1,7 @@
 :root {
     --bg-dark: #0a0e17;
     --text-white: #e2e8f0;
-    --accent: #10b981; /* Zielony dla Tematu 2 */
+    --accent: #10b981;
     --font: 'Montserrat', sans-serif;
 }
 
@@ -16,7 +16,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Tło */
 .bg-animation {
     position: fixed; width: 200%; height: 200%; top: -50%; left: -50%;
     background: radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.05), transparent 60%);
@@ -24,7 +23,6 @@ body {
 }
 @keyframes rotateBg { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-/* Nawigacja */
 .top-nav { padding: 20px; position: absolute; top: 0; left: 0; width: 100%; }
 .nav-btn {
     text-decoration: none; color: #94a3b8; font-weight: 700; font-size: 0.9rem;
@@ -32,10 +30,8 @@ body {
 }
 .nav-btn:hover { color: white; transform: translateX(-5px); }
 
-/* Kontener */
 .lesson-container { max-width: 800px; margin: 0 auto; padding: 60px 20px 100px; }
 
-/* Header */
 .lesson-header { text-align: center; margin-bottom: 50px; }
 .icon-wrapper {
     width: 70px; height: 70px; background: rgba(16, 185, 129, 0.1);
@@ -47,7 +43,6 @@ body {
 .lesson-title .accent { color: var(--accent); }
 .lesson-subtitle { color: #94a3b8; font-size: 1.1rem; }
 
-/* Content */
 .content-box {
     background: rgba(30, 41, 59, 0.4);
     border: 1px solid rgba(255,255,255,0.05);
@@ -66,7 +61,6 @@ body {
     border: 1px dashed var(--accent);
 }
 
-/* TABELA DANYCH */
 .table-wrapper { overflow-x: auto; margin: 20px 0; border-radius: 10px; }
 .data-table {
     width: 100%; border-collapse: collapse; font-family: monospace; font-size: 1rem;
@@ -78,7 +72,6 @@ body {
 .data-table tr:nth-child(even) { background: rgba(255,255,255,0.02); }
 .data-table tr:hover { background: rgba(16, 185, 129, 0.1); }
 
-/* INTERAKTYWNA SYMULACJA */
 .interactive-canvas-wrapper {
     background: #0f172a; border-radius: 12px; padding: 20px;
     border: 1px solid #334155; margin: 30px 0; text-align: center;
@@ -102,7 +95,6 @@ input[type=range] { width: 100%; margin: 15px 0; cursor: pointer; accent-color: 
 
 .divider { border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 40px 0; }
 
-/* Przycisk CTA */
 .next-step { text-align: center; margin-top: 20px; }
 .cta-button {
     display: inline-block; background: var(--accent);
@@ -112,7 +104,6 @@ input[type=range] { width: 100%; margin: 15px 0; cursor: pointer; accent-color: 
 }
 .cta-button:hover { transform: translateY(-5px) scale(1.05); }
 
-/* Animacje */
 .fade-in { opacity: 0; animation: fadeDown 0.8s ease forwards; }
 .fade-in-stagger { opacity: 0; animation: fadeUp 0.8s ease forwards; }
 @keyframes fadeDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }

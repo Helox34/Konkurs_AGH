@@ -16,7 +16,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Tło */
 .bg-animation {
     position: fixed; width: 200%; height: 200%; top: -50%; left: -50%;
     background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.05), transparent 60%);
@@ -24,7 +23,6 @@ body {
 }
 @keyframes rotateBg { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-/* Nawigacja */
 .top-nav { padding: 20px; position: absolute; top: 0; left: 0; width: 100%; }
 .nav-btn {
     text-decoration: none; color: #94a3b8; font-weight: 700; font-size: 0.9rem;
@@ -32,10 +30,9 @@ body {
 }
 .nav-btn:hover { color: white; transform: translateX(-5px); }
 
-/* Kontener */
+
 .lesson-container { max-width: 800px; margin: 0 auto; padding: 60px 20px 100px; }
 
-/* Header */
 .lesson-header { text-align: center; margin-bottom: 50px; }
 .icon-wrapper {
     width: 70px; height: 70px; background: rgba(139, 92, 246, 0.1);
@@ -47,7 +44,6 @@ body {
 .lesson-title .accent { color: var(--accent); }
 .lesson-subtitle { color: #94a3b8; font-size: 1.1rem; }
 
-/* Treść */
 .content-box {
     background: rgba(30, 41, 59, 0.4);
     border: 1px solid rgba(255,255,255,0.05);
@@ -62,7 +58,6 @@ body {
 .content-box p, .content-box li { color: #cbd5e1; font-size: 1.05rem; margin-bottom: 15px; }
 .content-box ul { padding-left: 25px; margin-bottom: 25px; }
 
-/* Blok Info */
 .info-block {
     background: rgba(139, 92, 246, 0.1); border-left: 4px solid var(--accent);
     padding: 20px; border-radius: 0 12px 12px 0; margin: 30px 0; display: flex; gap: 15px;
@@ -70,7 +65,6 @@ body {
 .info-block i { color: var(--accent); font-size: 1.4rem; }
 .info-block p { margin: 0; }
 
-/* INTERAKTYWNA SYMULACJA - STYLE */
 .interactive-canvas-wrapper {
     background: #0f172a;
     border-radius: 12px;
@@ -93,7 +87,6 @@ canvas {
 }
 .equation { font-weight: bold; color: white; width: 100%; margin-top: 10px; text-align: center; font-size: 1.1rem; }
 
-/* Przycisk CTA */
 .next-step { text-align: center; margin-top: 20px; }
 .cta-button {
     display: inline-block; background: var(--accent);
@@ -103,7 +96,6 @@ canvas {
 }
 .cta-button:hover { transform: translateY(-5px) scale(1.05); }
 
-/* Animacje */
 .fade-in { opacity: 0; animation: fadeDown 0.8s ease forwards; }
 .fade-in-stagger { opacity: 0; animation: fadeUp 0.8s ease forwards; }
 @keyframes fadeDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
