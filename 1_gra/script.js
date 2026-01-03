@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const width = canvas.width;
     const height = canvas.height;
 
-    // --- 1. UI & HELPERS ---
+    // --- 1. UI ---
     diffButtons.forEach(btn => {
         btn.addEventListener('click', () => {
             diffButtons.forEach(b => b.classList.remove('active'));
@@ -42,12 +42,13 @@ document.addEventListener("DOMContentLoaded", () => {
         movesContainer.innerHTML = '';
         for(let i=0; i<MAX_MOVES; i++) {
             const dot = document.createElement('div');
-            dot.style.width = '12px';
-            dot.style.height = '12px';
+            dot.style.width = '12px'; height = '12px';
             dot.style.borderRadius = '50%';
-            dot.style.background = i < movesLeft ? '#3b82f6' : '#334155';
+            // FIOLET dla dostępnych ruchów
+            dot.style.background = i < movesLeft ? '#8b5cf6' : '#334155';
             dot.style.display = 'inline-block';
             dot.style.margin = '0 3px';
+            dot.style.height = '12px'; // fix
             movesContainer.appendChild(dot);
         }
     }
@@ -65,7 +66,8 @@ document.addEventListener("DOMContentLoaded", () => {
         bases.forEach(b => {
             ctx.beginPath();
             ctx.arc(b.x, b.y, 7, 0, Math.PI * 2);
-            ctx.fillStyle = b.owner === 'P' ? '#3b82f6' : '#ec4899';
+            // KOLOR BAZY: FIOLET DLA GRACZA
+            ctx.fillStyle = b.owner === 'P' ? '#8b5cf6' : '#ec4899';
             ctx.shadowBlur = 15;
             ctx.shadowColor = ctx.fillStyle;
             ctx.fill();
@@ -99,11 +101,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
 
+            // KOLORY TERYTORIUM (FIOLET)
             if (owner === 'P') {
-                ctx.fillStyle = 'rgba(59, 130, 246, 0.5)';
+                ctx.fillStyle = 'rgba(139, 92, 246, 0.5)'; // Fiolet półprzezroczysty
                 pCount++;
             } else {
-                ctx.fillStyle = 'rgba(236, 72, 153, 0.5)';
+                ctx.fillStyle = 'rgba(236, 72, 153, 0.5)'; // Róż
                 cCount++;
             }
             ctx.fillRect(rx, ry, 4, 4);
@@ -121,27 +124,22 @@ document.addEventListener("DOMContentLoaded", () => {
         return pPerc;
     }
 
-    // --- 2. LOGIKA RUCHÓW ---
+    // --- 2. LOGIKA ---
 
     function playerMove(x, y) {
         bases.push({x, y, owner: 'P'});
         movesLeft--;
         updateMovesUI();
         drawTerritories();
-        
         gameState = 'WAITING';
-        if (movesLeft >= 0) {
-            setTimeout(cpuMove, 600);
-        }
+        if (movesLeft >= 0) setTimeout(cpuMove, 600);
     }
 
     function cpuMove() {
-        // --- ZMIANA AI ---
         let attempts = 1; 
-
-        if(currentDifficulty === 'EASY') attempts = 5;      // Bardzo mało myśli
-        if(currentDifficulty === 'MEDIUM') attempts = 100;  // Solidnie myśli
-        if(currentDifficulty === 'HARD') attempts = 800;    // Superkomputer - bardzo trudno wygrać
+        if(currentDifficulty === 'EASY') attempts = 5;
+        if(currentDifficulty === 'MEDIUM') attempts = 100;
+        if(currentDifficulty === 'HARD') attempts = 800;
 
         let bestCandidate = null;
         let maxScore = -1;
@@ -165,16 +163,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
 
-            // Ocena kandydata (Score)
-            // Podstawą jest odległość od najbliższej bazy (szukamy pustego miejsca)
             let score = distToNearest;
-
-            // DLA HARD: Jeśli najbliższa baza należy do GRACZA, to zwiększamy atrakcyjność tego punktu.
-            // Oznacza to, że AI będzie "agresywne" i spróbuje wcisnąć się blisko Twoich baz,
-            // żeby ukraść Ci teren, zamiast chować się w rogu.
-            if (currentDifficulty === 'HARD' && nearestOwner === 'P') {
-                score *= 1.5; // Bonus za agresję
-            }
+            if (currentDifficulty === 'HARD' && nearestOwner === 'P') score *= 1.5;
 
             if(score > maxScore) {
                 maxScore = score;
@@ -193,7 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // --- 3. STAN GRY ---
+    // --- 3. STAN ---
 
     function finishRound(playerPercent) {
         gameState = 'RESULT';
@@ -212,7 +202,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function showOverlay(title, isWin) {
         msgTitle.innerText = title;
-        msgTitle.style.color = isWin ? '#3b82f6' : '#ec4899';
+        // Kolor tytułu: FIOLET vs RÓŻ
+        msgTitle.style.color = isWin ? '#8b5cf6' : '#ec4899';
         diffContainer.style.display = 'none';
 
         if(scorePlayer >= 3 || scoreCPU >= 3) {
@@ -260,13 +251,11 @@ document.addEventListener("DOMContentLoaded", () => {
         round = 1;
         scoreP_el.innerText = '0';
         scoreC_el.innerText = '0';
-        
         diffContainer.style.display = 'flex';
         msgTitle.innerText = "Nowa Gra";
         msgText.innerText = "Wybierz poziom trudności:";
         msgTitle.style.color = 'white';
         actionBtn.innerText = "START";
-
         startNewRound();
         overlay.style.opacity = '1';
         overlay.style.pointerEvents = 'all';
@@ -276,25 +265,19 @@ document.addEventListener("DOMContentLoaded", () => {
     // --- 4. INPUT ---
 
     actionBtn.addEventListener('click', () => {
-        if(gameState === 'START' || gameState === 'RESULT') {
-            startNewRound();
-        } else if (gameState === 'END') {
-            fullReset();
-        }
+        if(gameState === 'START' || gameState === 'RESULT') startNewRound();
+        else if (gameState === 'END') fullReset();
     });
 
     canvas.addEventListener('mousedown', (e) => {
         if(gameState !== 'PLAYING') return;
-
         const rect = canvas.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
-
         for(let b of bases) {
             const dist = Math.sqrt((x - b.x)**2 + (y - b.y)**2);
             if(dist < 20) return;
         }
-
         playerMove(x, y);
     });
 

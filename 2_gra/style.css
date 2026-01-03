@@ -1,12 +1,11 @@
 :root {
     --bg-dark: #0a0e17;
     --text-white: #ffffff;
-    --accent: #ec4899; /* Różowy dla Gry 2 */
-    --accent-glow: rgba(236, 72, 153, 0.4);
+    --accent: #10b981; /* ZMIANA NA ZIELEŃ */
+    --accent-glow: rgba(16, 185, 129, 0.4);
     --font: 'Montserrat', sans-serif;
     --font-mono: 'Fira Code', monospace;
 
-    /* Kolory trudności */
     --diff-easy: #10b981;
     --diff-med: #f59e0b;
     --diff-hard: #ef4444;
@@ -60,7 +59,6 @@ h1 { font-size: 3rem; margin-bottom: 5px; text-transform: uppercase; letter-spac
     box-shadow: 0 0 50px rgba(0,0,0,0.5); margin-bottom: 30px;
 }
 
-/* Wyświetlacz ciągu */
 .sequence-display {
     background: #1e293b; border-radius: 12px; padding: 30px;
     margin-bottom: 30px; border: 1px solid #475569;
@@ -71,19 +69,16 @@ h1 { font-size: 3rem; margin-bottom: 5px; text-transform: uppercase; letter-spac
     letter-spacing: 2px;
 }
 
-/* Przyciski odpowiedzi */
-.options-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 15px;
-}
+.options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
 .option-btn {
     background: rgba(255,255,255,0.05); border: 2px solid rgba(255,255,255,0.1);
     color: white; padding: 20px; font-size: 1.5rem; font-family: var(--font-mono);
     border-radius: 12px; cursor: pointer; transition: 0.2s; font-weight: bold;
 }
-.option-btn:hover {
-    background: rgba(255,255,255,0.1); border-color: white; transform: translateY(-3px);
-}
-.option-btn.correct { background: #10b981 !important; border-color: #10b981 !important; color: #000; }
+.option-btn:hover { background: rgba(255,255,255,0.1); border-color: white; transform: translateY(-3px); }
+
+/* Poprawna odpowiedź - mocna zieleń */
+.option-btn.correct { background: #10b981 !important; border-color: #10b981 !important; color: #000 !important; }
 .option-btn.wrong { background: #ef4444 !important; border-color: #ef4444 !important; }
 
 /* OVERLAY */
@@ -96,7 +91,6 @@ h1 { font-size: 3rem; margin-bottom: 5px; text-transform: uppercase; letter-spac
 .start-overlay h2 { font-size: 2.5rem; color: white; margin-bottom: 10px; }
 .start-overlay p { color: #cbd5e1; margin-bottom: 20px; }
 
-/* Pastylki trudności */
 .difficulty-container { display: flex; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; justify-content: center; }
 .diff-btn {
     background: transparent; border: 2px solid #475569; color: #94a3b8;
@@ -116,16 +110,14 @@ h1 { font-size: 3rem; margin-bottom: 5px; text-transform: uppercase; letter-spac
 }
 .action-btn:hover { transform: scale(1.05); filter: brightness(1.2); }
 
-/* Instrukcja */
 .rules-box {
     text-align: left; background: rgba(255,255,255,0.03);
     padding: 25px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05);
 }
-.rules-box h3 { color: #ec4899; margin-bottom: 15px; }
+.rules-box h3 { color: var(--accent); margin-bottom: 15px; }
 .rules-box ol { padding-left: 20px; color: #cbd5e1; line-height: 1.6; }
 .rules-box li { margin-bottom: 8px; }
 
-/* Animacje */
 .fade-in { opacity: 0; animation: fadeDown 0.8s ease forwards; }
 .fade-in-stagger { opacity: 0; animation: fadeUp 0.8s ease forwards; animation-delay: 0.2s; }
 @keyframes fadeDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }

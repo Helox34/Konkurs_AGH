@@ -3,13 +3,10 @@
     --text-white: #ffffff;
     --font: 'Montserrat', sans-serif;
     
-    /* Kolory Gier i Tematów */
-    --c-flagdle: #3b82f6;   /* Niebieski */
-    --c-popdle: #8b5cf6;    /* Fiolet */
-    --c-logodle: #ec4899;   /* Różowy */
-    --c-pricedle: #10b981;  /* Zielony */
-    --c-chronodle: #f59e0b; /* Pomarańcz */
-    --c-reaction: #ef4444;  /* Czerwony */
+    /* PALETA KOLORÓW - ZESTAWY TEMATYCZNE */
+    --c-set1: #8b5cf6;   /* FIOLET (Geometria: Temat 1 + Gra 1) */
+    --c-set2: #10b981;   /* ZIELEŃ (Ciągi: Temat 2 + Gra 2) */
+    --c-set3: #ef4444;   /* CZERWIEŃ (Kryptografia: Temat 3 + Gra 3) */
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -23,7 +20,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Animowane tło (wspólne dla uniwersum) */
+/* Animowane tło */
 .bg-animation {
     position: fixed; width: 200%; height: 200%; top: -50%; left: -50%;
     background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.03), transparent 70%);
@@ -37,89 +34,84 @@ body {
     display: flex; flex-direction: column; align-items: center;
 }
 
-/* Header Główny */
+/* Header */
 .hub-header { text-align: center; margin-bottom: 50px; }
 .main-title { font-size: 4rem; font-weight: 900; letter-spacing: -2px; margin-bottom: 10px; }
 .accent-text { 
-    background: linear-gradient(to right, #3b82f6, #ec4899); 
+    background: linear-gradient(to right, var(--c-set1), var(--c-set3)); 
     -webkit-background-clip: text; color: transparent; 
 }
 .subtitle { color: #94a3b8; font-size: 1.2rem; letter-spacing: 1px; text-transform: uppercase; }
 
-/* --- NOWE: Nagłówki Sekcji (Strefa Wiedzy / Gier) --- */
+/* Nagłówki Sekcji */
 .section-header {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 25px;
-    margin-top: 10px;
-    opacity: 0.9;
+    width: 100%; display: flex; align-items: center; gap: 15px;
+    margin-bottom: 25px; margin-top: 10px; opacity: 0.9;
 }
-
 .section-header h3 {
-    font-size: 1.1rem;
-    color: #94a3b8;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    white-space: nowrap;
-    margin: 0;
-    font-weight: 700;
+    font-size: 1.1rem; color: #94a3b8; text-transform: uppercase;
+    letter-spacing: 2px; margin: 0; font-weight: 700; white-space: nowrap;
 }
-
 .section-header .line {
-    height: 1px;
-    background: linear-gradient(to right, rgba(148, 163, 184, 0.3), transparent);
-    width: 100%;
+    height: 1px; background: linear-gradient(to right, rgba(148, 163, 184, 0.3), transparent); width: 100%;
 }
+.section-header i { color: var(--c-set1); }
 
-.section-header i {
-    color: var(--c-flagdle);
-}
-
-/* --- Grid Gier --- */
+/* Grid */
 .games-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 25px;
-    width: 100%;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px; width: 100%;
 }
-
-/* Odstęp dolny dla górnej sekcji (aby oddzielić tematy od gier) */
-.mb-large {
-    margin-bottom: 60px;
-}
+.mb-large { margin-bottom: 60px; }
 
 /* Karta Gry */
 .game-card {
     background: rgba(30, 41, 59, 0.4);
     border: 1px solid rgba(255,255,255,0.05);
-    border-radius: 24px;
-    padding: 30px;
-    text-decoration: none;
-    color: white;
+    border-radius: 24px; padding: 30px;
+    text-decoration: none; color: white;
     display: flex; align-items: center; gap: 20px;
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-    position: relative;
-    overflow: hidden;
+    position: relative; overflow: hidden;
     backdrop-filter: blur(10px);
 }
 
-/* Efekt Hover - Unoszenie i Poświata */
 .game-card:hover {
     transform: translateY(-8px) scale(1.02);
-    border-color: rgba(255,255,255,0.2);
     background: rgba(30, 41, 59, 0.7);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
-/* Specyficzne kolory poświaty dla kart (używane też w tematach) */
-.card-flagdle:hover { box-shadow: 0 20px 50px rgba(59, 130, 246, 0.3); border-color: var(--c-flagdle); }
-.card-popdle:hover { box-shadow: 0 20px 50px rgba(139, 92, 246, 0.3); border-color: var(--c-popdle); }
-.card-logodle:hover { box-shadow: 0 20px 50px rgba(236, 72, 153, 0.3); border-color: var(--c-logodle); }
-.card-pricedle:hover { box-shadow: 0 20px 50px rgba(16, 185, 129, 0.3); border-color: var(--c-pricedle); }
-.card-chronodle:hover { box-shadow: 0 20px 50px rgba(245, 158, 11, 0.3); border-color: var(--c-chronodle); }
-.card-reaction:hover { box-shadow: 0 20px 50px rgba(239, 68, 68, 0.3); border-color: var(--c-reaction); }
+/* --- KOLORYSTYKA KART (ZESTAWY) --- */
+
+/* ZESTAW 1: FIOLET (Temat 1 i Gra 1) */
+/* Używamy klas z Twojego kodu (card-popdle dla tematu, card-flagdle dla gry 1) */
+.card-popdle:hover, .card-flagdle:hover { 
+    box-shadow: 0 20px 50px rgba(139, 92, 246, 0.3); 
+    border-color: var(--c-set1); 
+}
+.card-popdle .card-icon, .card-flagdle .card-icon { color: var(--c-set1); }
+.card-popdle .badge, .card-flagdle .badge { background: var(--c-set1); }
+
+
+/* ZESTAW 2: ZIELEŃ (Temat 2 i Gra 2) */
+/* (card-pricedle dla tematu, card-logodle dla gry 2) */
+.card-pricedle:hover, .card-logodle:hover { 
+    box-shadow: 0 20px 50px rgba(16, 185, 129, 0.3); 
+    border-color: var(--c-set2); 
+}
+.card-pricedle .card-icon, .card-logodle .card-icon { color: var(--c-set2); }
+.card-pricedle .badge, .card-logodle .badge { background: var(--c-set2); }
+
+
+/* ZESTAW 3: CZERWIEŃ (Temat 3 i Gra 3) */
+/* (card-reaction dla tematu, card-chronodle dla gry 3) */
+.card-reaction:hover, .card-chronodle:hover { 
+    box-shadow: 0 20px 50px rgba(239, 68, 68, 0.3); 
+    border-color: var(--c-set3); 
+}
+.card-reaction .card-icon, .card-chronodle .card-icon { color: var(--c-set3); }
+.card-reaction .badge, .card-chronodle .badge { background: var(--c-set3); }
+
 
 /* Wnętrze karty */
 .card-icon {
@@ -127,18 +119,8 @@ body {
     background: rgba(255,255,255,0.05);
     border-radius: 16px;
     display: flex; justify-content: center; align-items: center;
-    font-size: 1.8rem;
-    transition: transform 0.4s;
+    font-size: 1.8rem; transition: transform 0.4s;
 }
-
-/* Kolorowanie ikon */
-.card-flagdle .card-icon { color: var(--c-flagdle); }
-.card-popdle .card-icon { color: var(--c-popdle); }
-.card-logodle .card-icon { color: var(--c-logodle); }
-.card-pricedle .card-icon { color: var(--c-pricedle); }
-.card-chronodle .card-icon { color: var(--c-chronodle); }
-.card-reaction .card-icon { color: var(--c-reaction); }
-
 .game-card:hover .card-icon { transform: scale(1.1) rotate(5deg); background: rgba(255,255,255,0.1); }
 
 .card-content { flex: 1; }
@@ -146,32 +128,24 @@ body {
 .card-content p { font-size: 0.9rem; color: #94a3b8; line-height: 1.4; }
 
 .badge {
-    font-size: 0.6rem; background: var(--c-flagdle); padding: 2px 6px; border-radius: 4px; 
+    font-size: 0.6rem; padding: 2px 6px; border-radius: 4px; 
     vertical-align: middle; margin-left: 5px; color: white;
     text-transform: uppercase; font-weight: 700;
 }
 
-.card-arrow {
-    font-size: 1.2rem; color: #475569; transition: 0.3s;
-}
+.card-arrow { font-size: 1.2rem; color: #475569; transition: 0.3s; }
 .game-card:hover .card-arrow { color: white; transform: translateX(5px); }
 
 /* Footer */
 .hub-footer { margin-top: 60px; color: #475569; font-size: 0.9rem; }
 
-/* Animacje wejścia */
+/* Animacje */
 .fade-in { opacity: 0; animation: fadeUp 0.8s ease forwards; }
 .fade-in-stagger { opacity: 0; animation: fadeUp 0.8s ease forwards; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Responsywność */
 @media (max-width: 600px) {
     .main-title { font-size: 2.5rem; }
     .games-grid { grid-template-columns: 1fr; }
     .game-card { padding: 20px; }
-    .section-header h3 { font-size: 0.9rem; }
 }
